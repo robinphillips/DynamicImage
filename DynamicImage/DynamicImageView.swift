@@ -22,11 +22,7 @@ final class DynamicImageView: UIImageView {
         image: UIImage,
         preferredWidth: CGFloat
     ) {
-        let detectorLabel = UILabel()
-        detectorLabel.font = .preferredFont(forTextStyle: .body)
-        detectorLabel.adjustsFontForContentSizeCategory = true
-
-        self.contentSize = detectorLabel.traitCollection.preferredContentSizeCategory
+        contentSize = UIApplication.shared.preferredContentSizeCategory
         
         self.preferredMaxWidth = preferredWidth
         super.init(image: image)
