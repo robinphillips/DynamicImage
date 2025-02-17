@@ -48,10 +48,8 @@ final class DynamicImageView: UIImageView {
             ]
         )
         
-        NotificationCenter.default.addObserver(forName: UIContentSizeCategory.didChangeNotification, object: nil, queue: nil) { value in
-
-            guard let newValue = value.userInfo?["UIContentSizeCategoryNewValueKey"] as? UIContentSizeCategory else { return }
-            self.contentSize = newValue
+        NotificationCenter.default.addObserver(forName: UIContentSizeCategory.didChangeNotification, object: nil, queue: nil) { _ in
+            self.contentSize = UIApplication.shared.preferredContentSizeCategory
         }
     }
     
